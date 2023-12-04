@@ -1,51 +1,72 @@
 import { Avatar, Box, Button, Grid, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import React, { useState } from "react";
 
-function preload(img) {
-    let loaded = new Image();
-    loaded.src = img;
-    return loaded
+function preload(images) {
+    images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+    })
+}
+
+const addLoadEvent = (func) => {
+    const onloadEvent = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (onloadEvent) {
+                onloadEvent();
+            }
+            func();
+        }
+    }
 }
 
 const images = {
     sr: {
         sample1: [
-            preload(require('../figures/face/human-sr-1.png')),
-            preload(require('../figures/face/human-sr-1-adult.png')),
-            preload(require('../figures/face/human-sr-1-baby.png')),
+            require('../figures/face/human-sr-1.png'),
+            require('../figures/face/human-sr-1-adult.png'),
+            require('../figures/face/human-sr-1-baby.png'),
         ],
         sample2: [
-            preload(require('../figures/face/human-sr-2.png')),
-            preload(require('../figures/face/human-sr-2-adult.png')),
-            preload(require('../figures/face/human-sr-2-baby.png')),
+            require('../figures/face/human-sr-2.png'),
+            require('../figures/face/human-sr-2-adult.png'),
+            require('../figures/face/human-sr-2-baby.png'),
         ],
         sample3: [
-            preload(require('../figures/face/human-sr-3.png')),
-            preload(require('../figures/face/human-sr-3-adult.png')),
-            preload(require('../figures/face/human-sr-3-baby.png')),
+            require('../figures/face/human-sr-3.png'),
+            require('../figures/face/human-sr-3-adult.png'),
+            require('../figures/face/human-sr-3-baby.png'),
         ],
     },
     blur: {
         sample1: [
-            preload(require('../figures/face/human-blur-1.png')),
-            preload(require('../figures/face/human-blur-1-adult.png')),
-            preload(require('../figures/face/human-blur-1-baby.png')),
+            require('../figures/face/human-blur-1.png'),
+            require('../figures/face/human-blur-1-adult.png'),
+            require('../figures/face/human-blur-1-baby.png'),
         ],
         sample2: [
-            preload(require('../figures/face/human-blur-2.png')),
-            preload(require('../figures/face/human-blur-2-adult.png')),
+            require('../figures/face/human-blur-2.png'),
+            require('../figures/face/human-blur-2-adult.png'),
             require('../figures/face/human-blur-2-baby.png'),
         ],
         sample3: [
-            preload(require('../figures/face/human-blur-3.png')),
-            preload(require('../figures/face/human-blur-3-adult.png')),
-            preload(require('../figures/face/human-blur-3-baby.png')),
+            require('../figures/face/human-blur-3.png'),
+            require('../figures/face/human-blur-3-adult.png'),
+            require('../figures/face/human-blur-3-baby.png'),
         ],
     },
     getSample : function (task, num){
         return this[task]['sample'+num];
     }
 };
+
+addLoadEvent(preload(images.sr.sample2))
+addLoadEvent(preload(images.sr.sample3))
+addLoadEvent(preload(images.blur.sample1))
+addLoadEvent(preload(images.blur.sample2))
+addLoadEvent(preload(images.blur.sample3))
 
 export default function Result2 () {
     const [task, setTask] = useState('sr');
@@ -82,7 +103,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===1 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 1)[0].src}
+                        startIcon={<Avatar src={images.getSample(task, 1)[0]}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(1)}
@@ -92,7 +113,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===2 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 2)[0].src}
+                        startIcon={<Avatar src={images.getSample(task, 2)[0]}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(2)}
@@ -102,7 +123,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===3 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 3)[0].src}
+                        startIcon={<Avatar src={images.getSample(task, 3)[0]}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(3)}
@@ -111,11 +132,11 @@ export default function Result2 () {
 
                 <Grid item sm={6}>
                     <Typography variant="h6" align="center" fontStyle={'italic'}> "Adult" </Typography>
-                    <img src={images.getSample(task, num)[1].src} width={"100%"} alt="adult" style={{padding: 0}}/>
+                    <img src={images.getSample(task, num)[1]} width={"100%"} alt="adult" style={{padding: 0}}/>
                 </Grid>
                 <Grid item sm={6}>
                     <Typography variant="h6" align="center" fontStyle={'italic'}> "Baby" </Typography>
-                    <img src={images.getSample(task, num)[2].src} width={"100%"} alt="baby"/>
+                    <img src={images.getSample(task, num)[2]} width={"100%"} alt="baby"/>
                 </Grid>
             </Grid>
             <div style={{padding: "2rem 0"}}></div>

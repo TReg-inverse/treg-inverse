@@ -1,24 +1,19 @@
 import { Grid, Typography } from "@mui/material";
 
-function preload(img) {
-    let loaded = new Image();
-    loaded.src = img;
-    return loaded
-}
 const images = {
-    measure: preload(require('../figures/face-inp/face-inp-measure.png')),
+    measure: require('../figures/face-inp/face-inp-measure.png'),
     recon:[
-    preload(require('../figures/face-inp/face-inp-1.png')),
-    preload(require('../figures/face-inp/face-inp-2.png')),
-    preload(require('../figures/face-inp/face-inp-3.png')),
+    require('../figures/face-inp/face-inp-1.png'),
+    require('../figures/face-inp/face-inp-2.png'),
+    require('../figures/face-inp/face-inp-3.png'),
     '',
-    preload(require('../figures/face-inp/face-inp-4.png')),
-    preload(require('../figures/face-inp/face-inp-5.png')),
-    preload(require('../figures/face-inp/face-inp-6.png')),
+    require('../figures/face-inp/face-inp-4.png'),
+    require('../figures/face-inp/face-inp-5.png'),
+    require('../figures/face-inp/face-inp-6.png'),
     '',
-    preload(require('../figures/face-inp/face-inp-7.png')),
-    preload(require('../figures/face-inp/face-inp-8.png')),
-    preload(require('../figures/face-inp/face-inp-9.png')),
+    require('../figures/face-inp/face-inp-7.png'),
+    require('../figures/face-inp/face-inp-8.png'),
+    require('../figures/face-inp/face-inp-9.png'),
     ]
 }
 

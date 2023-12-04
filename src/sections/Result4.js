@@ -1,40 +1,58 @@
 import { Box, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
-function preload(img) {
-    let loaded = new Image();
-    loaded.src = img;
-    return loaded
+function preload(images) {
+    images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+    })
+}
+
+const addLoadEvent = (func) => {
+    const onloadEvent = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (onloadEvent) {
+                onloadEvent();
+            }
+            func();
+        }
+    }
 }
 
 const images = {
-    blur:{
-        measure: preload(require('../figures/food/food-blur-measure.png')),
-        1: preload(require('../figures/food/food-blur-1.png')),
-        2: preload(require('../figures/food/food-blur-2.png')),
-        3: preload(require('../figures/food/food-blur-3.png')),
-        4: preload(require('../figures/food/food-blur-4.png')),
-        5: preload(require('../figures/food/food-blur-5.png')),
-        6: preload(require('../figures/food/food-blur-6.png')),
-        7: preload(require('../figures/food/food-blur-7.png')),
-        8: preload(require('../figures/food/food-blur-8.png')),
-        9: preload(require('../figures/food/food-blur-9.png')),
-        10: preload(require('../figures/food/food-blur-10.png')),
-    },
-    sr:{
-        measure: preload(require('../figures/food/food-sr-measure.png')),
-        1: preload(require('../figures/food/food-sr-1.png')),
-        2: preload(require('../figures/food/food-sr-2.png')),
-        3: preload(require('../figures/food/food-sr-3.png')),
-        4: preload(require('../figures/food/food-sr-4.png')),
-        5: preload(require('../figures/food/food-sr-5.png')),
-        6: preload(require('../figures/food/food-sr-6.png')),
-        7: preload(require('../figures/food/food-sr-7.png')),
-        8: preload(require('../figures/food/food-sr-8.png')),
-        9: preload(require('../figures/food/food-sr-9.png')),
-        10: preload(require('../figures/food/food-sr-10.png')),
-    },
+    blur:[
+        require('../figures/food/food-blur-measure.png'),
+        require('../figures/food/food-blur-1.png'),
+        require('../figures/food/food-blur-2.png'),
+        require('../figures/food/food-blur-3.png'),
+        require('../figures/food/food-blur-4.png'),
+        require('../figures/food/food-blur-5.png'),
+        require('../figures/food/food-blur-6.png'),
+        require('../figures/food/food-blur-7.png'),
+        require('../figures/food/food-blur-8.png'),
+        require('../figures/food/food-blur-9.png'),
+        require('../figures/food/food-blur-10.png'),
+    ],
+    sr:[
+        require('../figures/food/food-sr-measure.png'),
+        require('../figures/food/food-sr-1.png'),
+        require('../figures/food/food-sr-2.png'),
+        require('../figures/food/food-sr-3.png'),
+        require('../figures/food/food-sr-4.png'),
+        require('../figures/food/food-sr-5.png'),
+        require('../figures/food/food-sr-6.png'),
+        require('../figures/food/food-sr-7.png'),
+        require('../figures/food/food-sr-8.png'),
+        require('../figures/food/food-sr-9.png'),
+        require('../figures/food/food-sr-10.png'),
+    ],
 }
+
+addLoadEvent(preload(images.blur.slice(2,10)))
+addLoadEvent(preload(images.sr))
 
 const prompts = {
     blur: [
@@ -98,7 +116,7 @@ export default function Result4 () {
                 <Grid item sm={6}> <Typography variant='subtitle1' align='center'>Reconstruction</Typography></Grid>
 
                 <Grid item sm={6}>
-                    <img src={images[task].measure} width={"100%"} alt="measurement"/>
+                    <img src={images[task][0]} width={"100%"} alt="measurement"/>
                 </Grid>
                 <Grid item sm={6}>
                     <img src={images[task][num]} width={"100%"} alt="reconstruction"/>

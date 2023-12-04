@@ -1,41 +1,59 @@
 import { Box, Grid, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import React, { useState } from "react";
 
-function preload(img) {
-    let loaded = new Image();
-    loaded.src = img;
-    return loaded
+function preload(images) {
+    images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+    })
+}
+
+const addLoadEvent = (func) => {
+    const onloadEvent = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (onloadEvent) {
+                onloadEvent();
+            }
+            func();
+        }
+    }
 }
 
 const images_1 = {
-    sr: {
-        measure: preload(require('../figures/landscape/land-sr-01.png')),
-        photo: preload(require('../figures/landscape/land-sr-01-photo.png')),
-        monet: preload(require('../figures/landscape/land-sr-01-monet.png')),
-        water: preload(require('../figures/landscape/land-sr-01-water.png')),
-    },
-    blur: {
-        measure: preload(require('../figures/landscape/land-blur-01.png')),
-        photo: preload(require('../figures/landscape/land-blur-01-photo.png')),
-        monet: preload(require('../figures/landscape/land-blur-01-monet.png')),
-        water: preload(require('../figures/landscape/land-blur-01-water.png')),
-    },
+    sr: [
+        require('../figures/landscape/land-sr-01.png'),
+        require('../figures/landscape/land-sr-01-photo.png'),
+        require('../figures/landscape/land-sr-01-monet.png'),
+        require('../figures/landscape/land-sr-01-water.png'),
+    ],
+    blur: [
+        require('../figures/landscape/land-blur-01.png'),
+        require('../figures/landscape/land-blur-01-photo.png'),
+        require('../figures/landscape/land-blur-01-monet.png'),
+        require('../figures/landscape/land-blur-01-water.png'),
+    ],
 }
 
 const images_2 = {
-    sr: {
-        measure: preload(require('../figures/landscape/land-sr-02.png')),
-        photo: preload(require('../figures/landscape/land-sr-02-photo.png')),
-        monet: preload(require('../figures/landscape/land-sr-02-monet.png')),
-        water: preload(require('../figures/landscape/land-sr-02-water.png')),
-    },
-    blur: {
-        measure: preload(require('../figures/landscape/land-blur-02.png')),
-        photo: preload(require('../figures/landscape/land-blur-02-photo.png')),
-        monet: preload(require('../figures/landscape/land-blur-02-monet.png')),
-        water: preload(require('../figures/landscape/land-blur-02-water.png')),
-    },
+    sr: [
+        require('../figures/landscape/land-sr-02.png'),
+        require('../figures/landscape/land-sr-02-photo.png'),
+        require('../figures/landscape/land-sr-02-monet.png'),
+        require('../figures/landscape/land-sr-02-water.png'),
+    ],
+    blur: [
+        require('../figures/landscape/land-blur-02.png'),
+        require('../figures/landscape/land-blur-02-photo.png'),
+        require('../figures/landscape/land-blur-02-monet.png'),
+        require('../figures/landscape/land-blur-02-water.png'),
+    ],
 }
+
+addLoadEvent(preload(images_1.blur))
+addLoadEvent(preload(images_2.blur))
 
 function ImageMagnifierGrid(props){
     const [[x, y], setXY] = useState([0, 0]);
@@ -125,9 +143,9 @@ export default function Result3 () {
                     <Typography variant="subtitle1" align="center" fontStyle={'italic'}> "Watercolor" </Typography>
                 </Grid>
 
-                <ImageMagnifierGrid srcs={[images_1[task].measure, images_1[task].photo, images_1[task].monet, images_1[task].water]}/>
+                <ImageMagnifierGrid srcs={images_1[task]}/>
 
-                <ImageMagnifierGrid srcs={[images_2[task].measure, images_2[task].photo, images_2[task].monet, images_2[task].water]}/>
+                <ImageMagnifierGrid srcs={images_2[task]}/>
             </Grid>
         </div>
     )
