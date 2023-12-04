@@ -62,8 +62,8 @@ const images = {
     }
 };
 
-addLoadEvent(preload(images.sr.sample2))
-addLoadEvent(preload(images.sr.sample3))
+addLoadEvent(preload(images.sr.sample2.slice(1,2)))
+addLoadEvent(preload(images.sr.sample3.slice(1,2)))
 addLoadEvent(preload(images.blur.sample1))
 addLoadEvent(preload(images.blur.sample2))
 addLoadEvent(preload(images.blur.sample3))
