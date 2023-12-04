@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/treg-inverse/static/css/main.bf1dc33c.css",
-    "main.js": "/treg-inverse/static/js/main.373cea91.js",
+    "main.js": "/treg-inverse/static/js/main.a1f838bd.js",
     "static/js/787.0787dc41.chunk.js": "/treg-inverse/static/js/787.0787dc41.chunk.js",
     "static/media/motivation-middle.gif": "/treg-inverse/static/media/motivation-middle.c5a6d66fce83993eb0dc.gif",
     "static/media/food-sr-6.png": "/treg-inverse/static/media/food-sr-6.225c24901f5f120104d2.png",
@@ -114,11 +114,11 @@
     "static/media/uncertain_treg.png": "/treg-inverse/static/media/uncertain_treg.c25ccdafb3e3743f9ade.png",
     "index.html": "/treg-inverse/index.html",
     "main.bf1dc33c.css.map": "/treg-inverse/static/css/main.bf1dc33c.css.map",
-    "main.373cea91.js.map": "/treg-inverse/static/js/main.373cea91.js.map",
+    "main.a1f838bd.js.map": "/treg-inverse/static/js/main.a1f838bd.js.map",
     "787.0787dc41.chunk.js.map": "/treg-inverse/static/js/787.0787dc41.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bf1dc33c.css",
-    "static/js/main.373cea91.js"
+    "static/js/main.a1f838bd.js"
   ]
 }
