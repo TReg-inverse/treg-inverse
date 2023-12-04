@@ -1,58 +1,63 @@
 import { Grid, Typography } from "@mui/material";
 import { useState } from "react";
 
+function preload(img) {
+    let loaded = new Image();
+    loaded.src = img;
+    return loaded
+}
 
 const images ={
     cat:{
         sample4: {
-            measure: require('../figures/box/box-cat-1.png'),
-            1: require('../figures/box/box-cat-1-1.png'),
-            2: require('../figures/box/box-cat-1-2.png'),
-            3: require('../figures/box/box-cat-1-3.png'),
+            measure: preload(require('../figures/box/box-cat-1.png')),
+            1: preload(require('../figures/box/box-cat-1-1.png')),
+            2: preload(require('../figures/box/box-cat-1-2.png')),
+            3: preload(require('../figures/box/box-cat-1-3.png')),
         },
         sample2: {
-            measure: require('../figures/box/box-cat-2.png'),
-            1: require('../figures/box/box-cat-2-1.png'),
-            2: require('../figures/box/box-cat-2-2.png'),
-            3: require('../figures/box/box-cat-2-3.png'),
+            measure: preload(require('../figures/box/box-cat-2.png')),
+            1: preload(require('../figures/box/box-cat-2-1.png')),
+            2: preload(require('../figures/box/box-cat-2-2.png')),
+            3: preload(require('../figures/box/box-cat-2-3.png')),
         },
         sample3: {
-            measure: require('../figures/box/box-cat-3.png'),
-            1: require('../figures/box/box-cat-3-1.png'),
-            2: require('../figures/box/box-cat-3-2.png'),
-            3: require('../figures/box/box-cat-3-3.png'),
+            measure: preload(require('../figures/box/box-cat-3.png')),
+            1: preload(require('../figures/box/box-cat-3-1.png')),
+            2: preload(require('../figures/box/box-cat-3-2.png')),
+            3: preload(require('../figures/box/box-cat-3-3.png')),
         },
         sample1: {
-            measure: require('../figures/box/box-cat-4.png'),
-            1: require('../figures/box/box-cat-4-1.png'),
-            2: require('../figures/box/box-cat-4-2.png'),
-            3: require('../figures/box/box-cat-4-3.png'),
+            measure: preload(require('../figures/box/box-cat-4.png')),
+            1: preload(require('../figures/box/box-cat-4-1.png')),
+            2: preload(require('../figures/box/box-cat-4-2.png')),
+            3: preload(require('../figures/box/box-cat-4-3.png')),
         },
     },
     dog:{
         sample1: {
-            measure: require('../figures/box/box-dog-1.png'),
-            1: require('../figures/box/box-dog-1-1.png'),
-            2: require('../figures/box/box-dog-1-2.png'),
-            3: require('../figures/box/box-dog-1-3.png'),
+            measure: preload(require('../figures/box/box-dog-1.png')),
+            1: preload(require('../figures/box/box-dog-1-1.png')),
+            2: preload(require('../figures/box/box-dog-1-2.png')),
+            3: preload(require('../figures/box/box-dog-1-3.png')),
         },
         sample2: {
-            measure: require('../figures/box/box-dog-2.png'),
-            1: require('../figures/box/box-dog-2-1.png'),
-            2: require('../figures/box/box-dog-2-2.png'),
-            3: require('../figures/box/box-dog-2-3.png'),
+            measure: preload(require('../figures/box/box-dog-2.png')),
+            1: preload(require('../figures/box/box-dog-2-1.png')),
+            2: preload(require('../figures/box/box-dog-2-2.png')),
+            3: preload(require('../figures/box/box-dog-2-3.png')),
         },
         sample3: {
-            measure: require('../figures/box/box-dog-3.png'),
-            1: require('../figures/box/box-dog-3-1.png'),
-            2: require('../figures/box/box-dog-3-2.png'),
-            3: require('../figures/box/box-dog-3-3.png'),
+            measure: preload(require('../figures/box/box-dog-3.png')),
+            1: preload(require('../figures/box/box-dog-3-1.png')),
+            2: preload(require('../figures/box/box-dog-3-2.png')),
+            3: preload(require('../figures/box/box-dog-3-3.png')),
         },
         sample4: {
-            measure: require('../figures/box/box-dog-4.png'),
-            1: require('../figures/box/box-dog-4-1.png'),
-            2: require('../figures/box/box-dog-4-2.png'),
-            3: require('../figures/box/box-dog-4-3.png'),
+            measure: preload(require('../figures/box/box-dog-4.png')),
+            1: preload(require('../figures/box/box-dog-4-1.png')),
+            2: preload(require('../figures/box/box-dog-4-2.png')),
+            3: preload(require('../figures/box/box-dog-4-3.png')),
         },
     }
 }

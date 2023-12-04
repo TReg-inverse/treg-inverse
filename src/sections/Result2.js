@@ -1,40 +1,46 @@
 import { Avatar, Box, Button, Grid, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import React, { useState } from "react";
 
+function preload(img) {
+    let loaded = new Image();
+    loaded.src = img;
+    return loaded
+}
+
 const images = {
     sr: {
-        sample1: {
-            measure: require('../figures/face/human-sr-1.png'),
-            adult: require('../figures/face/human-sr-1-adult.png'),
-            baby: require('../figures/face/human-sr-1-baby.png'),
-        },
-        sample2: {
-            measure: require('../figures/face/human-sr-2.png'),
-            adult: require('../figures/face/human-sr-2-adult.png'),
-            baby: require('../figures/face/human-sr-2-baby.png'),
-        },
-        sample3: {
-            measure: require('../figures/face/human-sr-3.png'),
-            adult: require('../figures/face/human-sr-3-adult.png'),
-            baby: require('../figures/face/human-sr-3-baby.png'),
-        },
+        sample1: [
+            preload(require('../figures/face/human-sr-1.png')),
+            preload(require('../figures/face/human-sr-1-adult.png')),
+            preload(require('../figures/face/human-sr-1-baby.png')),
+        ],
+        sample2: [
+            preload(require('../figures/face/human-sr-2.png')),
+            preload(require('../figures/face/human-sr-2-adult.png')),
+            preload(require('../figures/face/human-sr-2-baby.png')),
+        ],
+        sample3: [
+            preload(require('../figures/face/human-sr-3.png')),
+            preload(require('../figures/face/human-sr-3-adult.png')),
+            preload(require('../figures/face/human-sr-3-baby.png')),
+        ],
     },
     blur: {
-        sample1: {
-            measure: require('../figures/face/human-blur-1.png'),
-            adult: require('../figures/face/human-blur-1-adult.png'),
-            baby: require('../figures/face/human-blur-1-baby.png'),
-        },
-        sample2: {
-            measure: require('../figures/face/human-blur-2.png'),
-            adult: require('../figures/face/human-blur-2-adult.png'),
-            baby: require('../figures/face/human-blur-2-baby.png'),
-        },
-        sample3: {
-            measure: require('../figures/face/human-blur-3.png'),
-            adult: require('../figures/face/human-blur-3-adult.png'),
-            baby: require('../figures/face/human-blur-3-baby.png'),
-        },
+        sample1: [
+            preload(require('../figures/face/human-blur-1.png')),
+            preload(require('../figures/face/human-blur-1-adult.png')),
+            preload(require('../figures/face/human-blur-1-baby.png')),
+        ],
+        sample2: [
+            preload(require('../figures/face/human-blur-2.png')),
+            preload(require('../figures/face/human-blur-2-adult.png')),
+            require('../figures/face/human-blur-2-baby.png'),
+        ],
+        sample3: [
+            preload(require('../figures/face/human-blur-3.png')),
+            preload(require('../figures/face/human-blur-3-adult.png')),
+            preload(require('../figures/face/human-blur-3-baby.png')),
+        ],
     },
     getSample : function (task, num){
         return this[task]['sample'+num];
@@ -76,7 +82,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===1 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 1).measure}
+                        startIcon={<Avatar src={images.getSample(task, 1)[0].src}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(1)}
@@ -86,7 +92,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===2 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 2).measure}
+                        startIcon={<Avatar src={images.getSample(task, 2)[0].src}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(2)}
@@ -96,7 +102,7 @@ export default function Result2 () {
                     <Button
                         className="clickable-img"
                         style={{padding: 0, opacity: num===3 ? 1 : 0.3}}
-                        startIcon={<Avatar src={images.getSample(task, 3).measure}
+                        startIcon={<Avatar src={images.getSample(task, 3)[0].src}
                                             variant='square'
                                             sx={{width:'100%', height:'100%'}}/>}
                         onClick={() => changeNum(3)}
@@ -105,11 +111,11 @@ export default function Result2 () {
 
                 <Grid item sm={6}>
                     <Typography variant="h6" align="center" fontStyle={'italic'}> "Adult" </Typography>
-                    <img src={images.getSample(task, num).adult} width={"100%"} alt="adult" style={{padding: 0}}/>
+                    <img src={images.getSample(task, num)[1].src} width={"100%"} alt="adult" style={{padding: 0}}/>
                 </Grid>
                 <Grid item sm={6}>
                     <Typography variant="h6" align="center" fontStyle={'italic'}> "Baby" </Typography>
-                    <img src={images.getSample(task, num).baby} width={"100%"} alt="baby"/>
+                    <img src={images.getSample(task, num)[2].src} width={"100%"} alt="baby"/>
                 </Grid>
             </Grid>
             <div style={{padding: "2rem 0"}}></div>

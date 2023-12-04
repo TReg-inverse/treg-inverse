@@ -14,7 +14,7 @@ function Header () {
     return (
         <div align={"center"}>
             <Typography variant="h2" color={"lightcoral"}>
-                Regularization by Texts for Latent Inverse Solvers
+                Regularization by Texts <br/> for Latent Inverse Solvers
             </Typography>
 
             <span style={{padding: "1rem"}}>

@@ -1,32 +1,38 @@
 import { Box, Grid, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
+function preload(img) {
+    let loaded = new Image();
+    loaded.src = img;
+    return loaded
+}
+
 const images = {
     blur:{
-        measure: require('../figures/food/food-blur-measure.png'),
-        1: require('../figures/food/food-blur-1.png'),
-        2: require('../figures/food/food-blur-2.png'),
-        3: require('../figures/food/food-blur-3.png'),
-        4: require('../figures/food/food-blur-4.png'),
-        5: require('../figures/food/food-blur-5.png'),
-        6: require('../figures/food/food-blur-6.png'),
-        7: require('../figures/food/food-blur-7.png'),
-        8: require('../figures/food/food-blur-8.png'),
-        9: require('../figures/food/food-blur-9.png'),
-        10: require('../figures/food/food-blur-10.png'),
+        measure: preload(require('../figures/food/food-blur-measure.png')),
+        1: preload(require('../figures/food/food-blur-1.png')),
+        2: preload(require('../figures/food/food-blur-2.png')),
+        3: preload(require('../figures/food/food-blur-3.png')),
+        4: preload(require('../figures/food/food-blur-4.png')),
+        5: preload(require('../figures/food/food-blur-5.png')),
+        6: preload(require('../figures/food/food-blur-6.png')),
+        7: preload(require('../figures/food/food-blur-7.png')),
+        8: preload(require('../figures/food/food-blur-8.png')),
+        9: preload(require('../figures/food/food-blur-9.png')),
+        10: preload(require('../figures/food/food-blur-10.png')),
     },
     sr:{
-        measure: require('../figures/food/food-sr-measure.png'),
-        1: require('../figures/food/food-sr-1.png'),
-        2: require('../figures/food/food-sr-2.png'),
-        3: require('../figures/food/food-sr-3.png'),
-        4: require('../figures/food/food-sr-4.png'),
-        5: require('../figures/food/food-sr-5.png'),
-        6: require('../figures/food/food-sr-6.png'),
-        7: require('../figures/food/food-sr-7.png'),
-        8: require('../figures/food/food-sr-8.png'),
-        9: require('../figures/food/food-sr-9.png'),
-        10: require('../figures/food/food-sr-10.png'),
+        measure: preload(require('../figures/food/food-sr-measure.png')),
+        1: preload(require('../figures/food/food-sr-1.png')),
+        2: preload(require('../figures/food/food-sr-2.png')),
+        3: preload(require('../figures/food/food-sr-3.png')),
+        4: preload(require('../figures/food/food-sr-4.png')),
+        5: preload(require('../figures/food/food-sr-5.png')),
+        6: preload(require('../figures/food/food-sr-6.png')),
+        7: preload(require('../figures/food/food-sr-7.png')),
+        8: preload(require('../figures/food/food-sr-8.png')),
+        9: preload(require('../figures/food/food-sr-9.png')),
+        10: preload(require('../figures/food/food-sr-10.png')),
     },
 }
 

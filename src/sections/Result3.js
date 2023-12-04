@@ -1,33 +1,39 @@
 import { Box, Grid, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import React, { useState } from "react";
 
+function preload(img) {
+    let loaded = new Image();
+    loaded.src = img;
+    return loaded
+}
+
 const images_1 = {
     sr: {
-        measure: require('../figures/landscape/land-sr-01.png'),
-        photo: require('../figures/landscape/land-sr-01-photo.png'),
-        monet: require('../figures/landscape/land-sr-01-monet.png'),
-        water: require('../figures/landscape/land-sr-01-water.png'),
+        measure: preload(require('../figures/landscape/land-sr-01.png')),
+        photo: preload(require('../figures/landscape/land-sr-01-photo.png')),
+        monet: preload(require('../figures/landscape/land-sr-01-monet.png')),
+        water: preload(require('../figures/landscape/land-sr-01-water.png')),
     },
     blur: {
-        measure: require('../figures/landscape/land-blur-01.png'),
-        photo: require('../figures/landscape/land-blur-01-photo.png'),
-        monet: require('../figures/landscape/land-blur-01-monet.png'),
-        water: require('../figures/landscape/land-blur-01-water.png'),
+        measure: preload(require('../figures/landscape/land-blur-01.png')),
+        photo: preload(require('../figures/landscape/land-blur-01-photo.png')),
+        monet: preload(require('../figures/landscape/land-blur-01-monet.png')),
+        water: preload(require('../figures/landscape/land-blur-01-water.png')),
     },
 }
 
 const images_2 = {
     sr: {
-        measure: require('../figures/landscape/land-sr-02.png'),
-        photo: require('../figures/landscape/land-sr-02-photo.png'),
-        monet: require('../figures/landscape/land-sr-02-monet.png'),
-        water: require('../figures/landscape/land-sr-02-water.png'),
+        measure: preload(require('../figures/landscape/land-sr-02.png')),
+        photo: preload(require('../figures/landscape/land-sr-02-photo.png')),
+        monet: preload(require('../figures/landscape/land-sr-02-monet.png')),
+        water: preload(require('../figures/landscape/land-sr-02-water.png')),
     },
     blur: {
-        measure: require('../figures/landscape/land-blur-02.png'),
-        photo: require('../figures/landscape/land-blur-02-photo.png'),
-        monet: require('../figures/landscape/land-blur-02-monet.png'),
-        water: require('../figures/landscape/land-blur-02-water.png'),
+        measure: preload(require('../figures/landscape/land-blur-02.png')),
+        photo: preload(require('../figures/landscape/land-blur-02-photo.png')),
+        monet: preload(require('../figures/landscape/land-blur-02-monet.png')),
+        water: preload(require('../figures/landscape/land-blur-02-water.png')),
     },
 }
 
